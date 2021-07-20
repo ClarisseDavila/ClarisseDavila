@@ -1,0 +1,97 @@
+* {
+	preenchimento :  0 ;
+	margem :  0 ;
+}
+
+footer  img {
+	largura :  10 % ;
+	margem :  0 px ;
+}
+
+header  img {
+	largura :  25 % ;
+
+}
+
+rodapé {
+	alinhamento de texto : centro;
+	fundo : branco;
+	margem :  0  0  1 px ;
+}
+
+
+
+mesa {
+	alinhamento de texto : centro;
+	largura :  100 % ;
+}
+
+div  h1 {
+	alinhamento de texto : centro;
+	margem :  0  0  20 px ;
+	cor : azul;
+}
+
+form {
+	largura :  600 px ;
+	margem :  30 px auto;
+}
+
+form  label {
+    alinhamento de texto : esquerda;
+	display : bloco;
+	margem :  0  0  5 px ;
+	tamanho da fonte :  18 px ;
+}
+
+form  input {
+	display : bloco;
+	margem :  0  0  10 px ;
+	preenchimento :  5 px  15 px ;
+	largura :  100 % ;
+	cor da borda : azul;
+	dimensionamento da caixa : caixa de borda;
+}
+
+
+
+formulário  h2 {
+	alinhamento de texto : centro;
+	cor : azul;
+}
+
+ botão de formulário {
+    tamanho da fonte :  18 px ;
+    cor de fundo : azul;
+    cor da borda : azul;
+    sombra do texto : preto;
+    alinhamento de texto : centro;
+}
+
+form {
+    alinhamento de texto : centro;
+}
+
+# mensagens-erro {
+	cor : vermelho;
+}
+
+ls  label {
+	alinhamento de texto : esquerda;
+	display : bloco;
+	margem :  0  0  5 px ;
+	tamanho da fonte :  18 px ;
+}
+
+ls  input {
+	display : bloco;
+	margem :  0  0  30 px ;
+	preenchimento :  5 px  15 px ;
+	largura :  44 % ;
+	cor da borda : azul;
+	dimensionamento da caixa : caixa de borda;
+}
+
+. inv {
+	display : nenhum;
+}
