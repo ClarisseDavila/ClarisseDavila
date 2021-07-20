@@ -1,0 +1,335 @@
+<! DOCTYPE html >
+< html  lang = " pt-br " >
+	< cabeça >
+		< meta  charset = " utf-8 " >
+		< title > Tabele de Notas </ title >
+		< link  rel = " stylesheet " type = " text / css " href = " cs.css " >
+		< estilo >
+    		tabela ,  th ,  td {
+    		borda :  2 px em azul sólido;
+    		colapso da fronteira : colapso;
+    		alinhamento de texto : centro;
+  		}
+    		th ,  td {
+    		preenchimento :  25 px ;
+    		alinhamento de texto : centro;
+    	}
+  		</ estilo >
+	</ head >
+	< corpo >
+		< cabeçalho >
+			< div  cass = " box " >
+				< img  src = " tabs.png " >
+				< h1 > Tabela de notas </ h1 >				
+			</ div >
+		</ header >
+		< principal >
+			< section  class = " box " >
+                < ls >
+                    < label  for = " filtrarAluno " > Filtrar Aluno: </ label >
+                    < input  type = " text " name = " filtro " id = " filtrarAluno " placeholder = " Digite o nome do aluno: " class = " input-ls " >
+                </ ls >
+				< mesa >
+					< thead >
+						< tr >
+							< th > Nome </ th >
+							< th > 1 ° Nota </ th >
+							< th > 2 ° Nota </ th >
+							< th > 3 ° Nota </ th >
+							< th > Média Semestral </ th >
+							< th > Situação </ th >
+						</ tr >
+					</ thead >
+					< tbody  id = " tabela-notas " >
+						< tr  class = " aluno " id = " primeiro-aluno " >
+							< td  class = " info-nome " > Álvaro </ td >
+							< td  class = " info-1nota " > 90 </ td >
+							< td  class = " info-2nota " > 100 </ td >
+							< td  class = " info-3nota " > 80 </ td >
+							< td  class = " info-media " > 0 </ td >
+							< td  class = " info-situacao " > 0 </ td >
+						</ tr >
+                        < tr  class = " aluno " id = " 2-aluno " >
+							< td  class = " info-nome " > Lincoln </ td >
+							< td  class = " info-1nota " > 100 </ td >
+							< td  class = " info-2nota " > 30 </ td >
+							< td  class = " info-3nota " > 80 </ td >
+							< td  class = " info-media " > 0 </ td >
+							< td  class = " info-situacao " > 0 </ td >
+						</ tr >
+                        < tr  class = " aluno " id = " 3-aluno " >
+							< td  class = " info-nome " > Marcos </ td >
+							< td  class = " info-1nota " > 10 </ td >
+							< td  class = " info-2nota " > 60 </ td >
+							< td  class = " info-3nota " > 40 </ td >
+							< td  class = " info-media " > 0 </ td >
+							< td  class = " info-situacao " > 0 </ td >
+						</ tr >
+                        < tr  class = " aluno " id = " 4-aluno " >
+							< td  class = " info-nome " > Lucas </ td >
+							< td  class = " info-1nota " > 100 </ td >
+							< td  class = " info-2nota " > 100 </ td >
+							< td  class = " info-3nota " > 90 </ td >
+							< td  class = " info-media " > 0 </ td >
+							< td  class = " info-situacao " > 0 </ td >
+						</ tr >
+                        < tr  class = " aluno " id = " 4-aluno " >
+							< td  class = " info-nome " > Ribamar </ td >
+							< td  class = " info-1nota " > 40 </ td >
+							< td  class = " info-2nota " > 30 </ td >
+							< td  class = " info-3nota " > 80 </ td >
+							< td  class = " info-media " > 0 </ td >
+							< td  class = " info-situacao " > 0 </ td >
+						</ tr >
+					</ tbody >
+				</ mesa >
+			</ seção >
+            < section  class = " box " >
+                < ul  id = " mensagens-erro " >
+                    < li > </ li >
+                    < li > </ li >
+                    < li > </ li >
+                </ ul >
+                < form  id = " form-aluno " >
+                    < h2 > Adicionar Novo Aluno: </ h2 >
+                    < div  class = "" >
+                        < label  for = " nome " > Nome: </ label >
+                        < input  type = " text " id = " nome " name = " nome " >
+                    </ div >
+                    < div  class = " grupo " >
+                        < label  for = " nota1 " > 1 ° Nota: </ label >
+                        < input  type = " number " id = " nota1 " name = " nota1 " >
+                    </ div >
+                    < div  class = " grupo " >
+                        < label  for = " nota2 " > 2 ° Nota: </ label >
+                        < input  type = " number " id = " nota2 " name = " nota2 " >
+                    </ div >
+                    < div  class = " grupo " >
+                        < label  for = " nota3 " > 3 ° Nota: </ label >
+                        < input  type = " number " id = " nota3 " name = " nota3 " >
+                    </ div >
+
+                    < button  id = " add-aluno " class = " botao " > Adicionar </ button >
+                </ form >
+            </ seção >
+		< rodapé >
+			< img  src = " tabs.png " >
+    		< p > Copyright Tabela de Notas - 2010 </ p >
+		</ rodapé >
+		< script  type = " text / javascript " >
+
+            var  campoFiltrar  =  documento . querySelector ( "#filtrarAluno" ) ;
+
+            campoFiltrar . addEventListener ( "input" ,  function ( )  {
+                var  alunos  =  documento . querySelectorAll ( ".aluno" ) ;
+
+                if ( this . value . length  >  0 )  {
+                    para  ( var  i  =  0 ;  i  <  alunos . comprimento ;  i ++ )  {
+                        var  aluno  =  alunos [ i ] ;
+
+                        var  tdNome  =  aluno . querySelector ( ".info-nome" ) ;
+                        var  nome  =  tdNome . textContent ;
+                        
+                        var  expressao  =  novo  RegExp ( este . valor ,  "i" ) ;
+
+                        if  ( expressao . test ( nome ) )  {
+                            aluno . classList . remove ( "inv" ) ;
+                        }  else  {
+                            aluno . classList . add ( "inv" ) ;
+                        }
+
+                        
+                    }
+                }  else  {
+                    para  ( var  i  =  0 ;  i  <  alunos . comprimento ;  i ++ )  {
+                        var  aluno  =  alunos [ i ] ;
+                        aluno . classList . remove ( "inv" ) ;
+                    }
+                }
+            } ) ;
+
+			var  alunos  =  documento . querySelectorAll ( ".aluno" ) ;
+			console . log ( alunos ) ;
+
+            para  ( var  i  =  0 ;  i  <  alunos . comprimento ;  i ++ )  {
+                var  aluno  =  alunos [ i ]
+                var  tdNota1  =  aluno . querySelector ( ".info-1nota" ) ;
+                var  nota1  =  tdNota1 . textContent ;
+                console . log ( nota1 ) ;
+
+                var  tdNota2  =  aluno . querySelector ( ".info-2nota" ) ;
+                var  nota2  =  tdNota2 . textContent ;
+                console . log ( nota2 ) ;
+
+                var  tdNota3  =  aluno . querySelector ( ".info-3nota" ) ;
+                var  nota3  =  tdNota3 . textContent ;
+                console . log ( nota3 ) ;
+
+                
+
+                var  nota1Vald  =  validanota1 ( nota1 ) ;
+                var  nota2Vald  =  validanota2 ( nota2 ) ;
+                var  nota3Vald  =  validanota3 ( nota3 ) ;
+
+                if  ( ! nota1Vald )  {
+                    console . log ( "Nota Inválida" )
+                    tdNota1 . textContent  =  "Nota Inválida" ;
+                }
+                if  ( ! nota2Vald )  {
+                    console . log ( "Nota Inválida" )
+                    tdNota2 . textContent  =  "Nota Inválida" ;
+                }
+                if  ( ! nota3Vald )  {
+                    console . log ( "Nota Inválida" )
+                    tdNota3 . textContent  =  "Nota Inválida" ;
+                }
+                if  ( nota1Vald  &&  nota2Vald  &&  nota3Vald )  {
+                    var  media  =  0
+                    var  media  =  calcuMedia ( nota1 ,  nota2 ,  nota3 ) ;
+                    console . log ( mídia ) ;
+
+                    var  tdMedia  =  aluno . querySelector ( ".info-media" )
+                    tdMedia . textContent  =  media ;
+                }
+                
+                var  ap  =  "Aprovado"
+                console . log ( ap ) ;
+
+                var  rp  =  "Reprovado"
+                console . log ( rp ) ;
+
+                var  pf  =  "Prova Final"
+                console . log ( pf ) ;
+
+                if  ( mídia  > =   70 )  {
+                    var  tdSituacao  =  aluno . querySelector ( ".info-situacao" )
+                    tdSituacao . textContent  =  ap ;
+                }
+                if  (  mídia  >  40  e  mídia  <  70  )  {
+                    var  tdSituacao  =  aluno . querySelector ( ".info-situacao" )
+                    tdSituacao . textContent  =  pf ;
+                }
+                if  ( media  <  40  )  {
+                    var  tdSituacao  =  aluno . querySelector ( ".info-situacao" )
+                    tdSituacao . textContent  =  rp ;
+                }
+            }
+            
+            function  validanota1 ( nota1 )  {
+                if ( nota1  > =  0  &&  nota1  <=  100 )  {
+                    return  true ;
+                }  else {
+                    return  false ;
+                }
+            }
+            function  validanota2 ( nota2 )  {
+                if ( nota2  > =  0  &&  nota2  <=  100 )  {
+                    return  true ;
+                }  else {
+                    return  false ;
+                }
+            }
+            function  validanota3 ( nota3 )  {
+                if ( nota3  > =  0  &&  nota3  <=  100 )  {
+                    return  true ;
+                }  else {
+                    return  false ;
+                }
+            }
+
+            function  calcuMedia ( nota1 ,  nota2 ,  nota3 )  {
+                var  media  =  0 ;
+                mídia  =  ( parseInt ( nota1 )  +  parseInt ( nota2 )  +  parseInt ( nota3 ) )  /  3 ;
+                 mídia de retorno . toFixed ( 1 ) ;
+            }
+
+            function  obtemAluno ( form )  {
+
+                var  aluno  =  {
+                    nome : formulário . nome . valor ,
+                    nota1 : formulário . nota1 . valor ,
+                    nota2 : formulário . nota2 . valor ,
+                    nota3 : formulário . nota3 . valor ,
+                    mídia : calcuMedia ( formulário . nota1 . valor ,  formulário . nota2 . valor ,  formulário . nota3 . valor )
+                    
+                }
+                return  aluno ;
+            }
+
+            function  montaTd ( dado ,  classe )  {
+                var  td  =  documento . createElement ( "td" ) ;
+                td . classList . adicionar ( classe ) ;
+                td . textContent  =  dado ;
+
+                return  td ;
+            }
+
+            function  validaAluno ( aluno )  {
+
+                var  erros  =  [ ] ;
+
+                if ( ! validanota1 ( aluno . nota1 ) )  {
+                    erros . push ( "Nota Invávila" ) ;
+                }
+
+                if ( ! validanota2 ( aluno . nota2 ) )  {
+                    erros . push ( "Nota Invávila" ) ;
+                }
+
+                if ( ! validanota3 ( aluno . nota3 ) )  {
+                    erros . push ( "Nota Invávila" ) ;
+                }
+
+                 erros de retorno ;
+            }
+
+            function  montaTr ( aluno )  {
+                var  alunoTr  =  documento . createElement ( "tr" ) ;
+                alunoTr . classList . adicionar ( "aluno" ) ;
+
+                alunoTr . appendChild ( montaTd ( aluno . nome ,  "info-nome" ) ) ;
+                alunoTr . appendChild ( montaTd ( aluno . nota1 ,  "info-1nota" ) ) ;
+                alunoTr . appendChild ( montaTd ( aluno . nota2 ,  "info-2nota" ) ) ;
+                alunoTr . appendChild ( montaTd ( aluno . nota3 ,  "info-3nota" ) ) ;
+                alunoTr . appendChild ( montaTd ( aluno . media ,  "info-media" ) ) ;
+                alunoTr . appendChild ( montaTd ( aluno . situacao ,  "info-situacao" ) ) ;
+
+                return  alunoTr ;
+            }
+
+            function  exibMensagenErro ( erros )  {
+                var  ul  =  documento . querySelector ( "# mensagens-erro" ) ;
+                para  ( var  i  =  0 ;  i  <  erros . comprimento ;  i ++ )  {
+                    var  li  =  documento . createElement ( "li" ) ;
+                    li . textContent  =  erros [ i ] ;
+                    ul . appendChild ( li ) ; 
+                }
+            }
+
+            var  botao  =  documento . querySelector ( "# add-aluno" ) ;
+            botao . addEventListener ( "click" ,  function ( event )  {
+                evento . preventDefault ( ) ;
+
+                var  form  =  document . querySelector ( "# form-aluno" ) ;
+
+                var  aluno  =  obtemAluno ( formulário ) ;
+
+                var  erros  =  validaAluno ( aluno ) ;
+
+                if ( erros . comprimento  >  0 )  {
+                    exibMensagenErro ( erros ) ;
+                    retorno ;
+                }
+
+                var  alunoTr  =  montaTr ( aluno ) ;
+
+                var  tabela  =  documento . querySelector ( "# tabela-notas" ) ;
+
+                tabela . appendChild ( alunoTr ) ;
+
+                formulário . reset ( ) ;
+            } ) ;
+            
+		</ script >
+	</ body >
+</ html >
